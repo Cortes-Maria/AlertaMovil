@@ -6,8 +6,12 @@ import { createStackNavigator } from '@react-navigation/stack';
 import LandingScreen from './screens/LandingScreen';
 import HomeScreen from './screens/HomeScreen';
 import ExampleScreen from './screens/ExampleScreen'; // 2 paso
+
+import AlertsScreen from './screens/AlertsScreen';
+
 import LogIn from './screens/LogIn';
 import SignUp from './screens/SignUp';
+
 
 
 const RootStack = createStackNavigator();
@@ -37,41 +41,40 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <RootStack.Navigator>
-      {isAuthenticated ? (
-        <RootStack.Screen 
-          name="Home" 
-          component={HomeScreen} 
-          options={{
-            headerRight: () => (
-              <Button onPress={handleSignOut} title="Log Out" />
-            ),
-          }}
-        />
-        ) : (
-          <>
-            <RootStack.Screen 
-              name="Landing" 
-              component={LandingScreen} 
-              options={{
-                animationTypeForReplace: 'pop',
-              }}
-            />
-            <RootStack.Screen name="LogIn">
-              {(props) => (
-                <LogIn {...props} onLogIn={handleLogIn}/>
-              )}
-            </RootStack.Screen>
-            <RootStack.Screen name="SignUp">
-              {(props) => (
-                <SignUp {...props} onSignUp={handleSignUp}/>
-              )}
-            </RootStack.Screen>
-          </>
-        )}
+      <RootStack.Navigator> 
+        {isAuthenticated ? (
+          <RootStack.Screen 
+            name="Home" 
+            component={HomeScreen} 
+            options={{
+              headerRight: () => (
+                <Button onPress={handleSignOut} title="Log Out" />
+              ),
+            }}
+          />
+          ) : (
+            <>
+              <RootStack.Screen 
+                name="Landing" 
+                component={LandingScreen} 
+                options={{
+                  animationTypeForReplace: 'pop',
+                }}
+              />
+              <RootStack.Screen name="LogIn">
+                {(props) => (
+                  <LogIn {...props} onLogIn={handleLogIn}/>
+                )}
+              </RootStack.Screen>
+              <RootStack.Screen name="SignUp">
+                {(props) => (
+                  <SignUp {...props} onSignUp={handleSignUp}/>
+                )}
+              </RootStack.Screen>
+            </>
+          )}
         <RootStack.Screen name="Example" component={ExampleScreen} />
-        
-
+        <RootStack.Screen name="Alerts" component={AlertsScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
