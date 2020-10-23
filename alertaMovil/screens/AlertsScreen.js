@@ -32,7 +32,7 @@ const AlertsScreen = ({navigation}) => {
   return (
 
     <View style={styles.container}>
-        <Text style={styles.Title}>Hola mundo</Text>
+        <Text style={styles.Title}>Alertas recientes</Text>
         {
             alerts.map((u,i)=>{
                 return(

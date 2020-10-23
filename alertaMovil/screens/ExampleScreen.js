@@ -16,7 +16,7 @@ const ExampleScreen = ({navigation}) => {
       <Text>Pantalla de ejemplo</Text>
       <Button
         title="Go to Home"
-        onPress={() => navigation.navigate('Home')}//como pasar de una pantalla a otra
+        onPress={() => navigation.navigate('Alerts')}//como pasar de una pantalla a otra
       />
     </View>
   );
