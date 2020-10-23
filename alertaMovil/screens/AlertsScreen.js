@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
-import { Card} from 'react-native-elements'
+import { View, Text, Button, StyleSheet , TouchableOpacity} from 'react-native';
+import { Card, Header} from 'react-native-elements'
 
 //estos son los estilos como el css por decirlo asi
 const styles = StyleSheet.create({
@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#C2D1D9'
   },
 });
 
@@ -15,6 +16,7 @@ const alerts = [
     {
         place: 'Parrita', 
         disaster: 'Inundacion',
+        date: '20/10/20',
         time: '10:00 pm'           
     },
     {
@@ -28,25 +30,37 @@ const alerts = [
         time: '10:00 pm'           
     }
 ]
+
 const AlertsScreen = ({navigation}) => {
   return (
-
+    
     <View style={styles.container}>
-        <Text style={styles.Title}>Alertas recientes</Text>
+        <Header
+            placement="left"
+            leftComponent={{ icon: 'menu', color: '#fff' }}
+            centerComponent={{ text: 'Alerta Movil', style: { color: '#fff' } }}
+            rightComponent={{ icon: 'home', color: '#fff' }}
+            containerStyle={{
+                backgroundColor: '#31F0AB',
+                justifyContent: 'space-around',
+            }}
+        ex/>
+        <Text style={styles.Title} style={{fontSize: 20, textAlign: 'left', alignSelf: 'stretch'}}>Alertas recientes</Text>
         {
             alerts.map((u,i)=>{
                 return(
-                <Card>
-                    <Card.Title>Alerta</Card.Title>
-                    <Card.Divider/>
-                    { 
-                        <View key={i} style={styles.user}>
-                            <Text style={styles.name}>{u.place}</Text>
-                            <Text style={styles.name}>{u.disaster}</Text>
-                            <Text style={styles.name}>{u.time}</Text>
-                        </View>  
-                    }
-                </Card>
+                <TouchableOpacity key={i} onPress={() => navigation.navigate('Home')}>
+                    <Card>
+                        <Card.Title>{u.disaster}</Card.Title>
+                        <Card.Divider/>
+                        { 
+                            <View key={i} style={styles.user}>
+                                <Text style={styles.name}>{u.place}</Text>
+                                <Text style={styles.name}>{u.time}</Text>
+                            </View>  
+                        }
+                    </Card>
+                </TouchableOpacity>
                 );
                 
             })
