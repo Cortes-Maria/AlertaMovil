@@ -15,7 +15,7 @@ const LandingScreen = ({navigation}) => {
       <Text>Public Landing Screen</Text>
       <Button
         title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        onPress={() => navigation.navigate('Alerts')}
       />
     </View>
   );
