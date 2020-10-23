@@ -44,8 +44,8 @@ const App = () => {
       <RootStack.Navigator> 
         {isAuthenticated ? (
           <RootStack.Screen 
-            name="Home" 
-            component={HomeScreen} 
+            name="Alerts" 
+            component={AlertsScreen} 
             options={{
               headerRight: () => (
                 <Button onPress={handleSignOut} title="Log Out" />
@@ -74,7 +74,7 @@ const App = () => {
             </>
           )}
         <RootStack.Screen name="Example" component={ExampleScreen} />
-        <RootStack.Screen name="Alerts" component={AlertsScreen} />
+        <RootStack.Screen name="Home" component={HomeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
   );
