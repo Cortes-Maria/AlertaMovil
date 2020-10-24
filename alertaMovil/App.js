@@ -12,8 +12,6 @@ import HistoryScreen from './screens/HistoryScreen';
 import ZoneScreen from "./screens/ZoneScreen";
 
 
-import AlertsScreen from "./screens/AlertsScreen";
-
 import LogIn from "./screens/LogIn";
 import SignUp from "./screens/SignUp";
 

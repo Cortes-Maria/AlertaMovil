@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { Card, Header} from 'react-native-elements' 
@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
     backgroundColor: '#C2D1D9'
   },
 });
@@ -46,6 +46,7 @@ function updateZones(zoneStr){
  
 const ZoneScreen = ({route, navigation}) => {
   const [dummyState, setDummyState] = React.useState(false)
+  const [isPressed, setPressed] = React.useState(false)
    
   
   /**function update(){
@@ -66,8 +67,8 @@ const ZoneScreen = ({route, navigation}) => {
                 return(
 				
 				u.isInterested == true ?
-                <TouchableOpacity key={i} onPress={() => {updateZones(u.name); update}}>
-                    <Card containerStyle={{width: 300}}>
+                <TouchableOpacity key={i} onPress={() => {updateZones(u.name); update; setPressed(changeState(isPressed))}}>
+                    <Card containerStyle={{width: 300, backgroundColor:'#57c244'}}>
                         <Card.Title style={{textAlign: 'left', fontSize:25}}>{u.name}</Card.Title>
                         <Card.Divider/>
                         { 
@@ -88,7 +89,7 @@ const ZoneScreen = ({route, navigation}) => {
                 return(
 				
 				u.isInterested == false ?
-                <TouchableOpacity key={i} onPress={() => {updateZones(u.name); update}}>
+                <TouchableOpacity key={i} onPress={() => {updateZones(u.name); update; setPressed(changeState(isPressed))}}>
                     <Card containerStyle={{width: 300}}>
                         <Card.Title style={{textAlign: 'left', fontSize:25}}>{u.name}</Card.Title>
                         <Card.Divider/>
@@ -99,7 +100,8 @@ const ZoneScreen = ({route, navigation}) => {
                         }
                     </Card>
                 </TouchableOpacity>
-				        : <Text> </Text>
+				        : 
+                <Text></Text>
                 );
             })
 			
