@@ -10,8 +10,6 @@ import ExampleScreen from "./screens/ExampleScreen"; // 2 paso
 import AlertsScreen from './screens/AlertsScreen';
 import HistoryScreen from './screens/HistoryScreen';
 import ZoneScreen from "./screens/ZoneScreen";
-
-
 import LogIn from "./screens/LogIn";
 import SignUp from "./screens/SignUp";
 
@@ -63,10 +61,10 @@ const App = () => {
               headerLeft: () => (
                 <Icon
                   style={{ marginLeft: 10 }}
-                  name="navicon"
+                  name="sign-out"
                   size={30}
                   color="white"
-                  onPress={() => navigation.openDrawer()}
+                  onPress={handleSignOut}
                 />
               ),
               headerRight: () => (
@@ -127,7 +125,6 @@ const App = () => {
             </HomeStack.Screen>
           </>
         )}
-
 		<HomeStack.Screen
           name="Zones"
           component={ZoneScreen}
@@ -146,7 +143,6 @@ const App = () => {
             ),
           }}
         />
-
         <HomeStack.Screen
           name="Example"
           component={ExampleScreen}

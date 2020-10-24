@@ -17,9 +17,7 @@ const styles = StyleSheet.create({
   },
 });
 
-
 const AlertsScreen = ({route, navigation}) => {
-
     
     const [alerts,setAlerts] = useState([]);
     const [error,setError] = useState(null);
@@ -27,15 +25,12 @@ const AlertsScreen = ({route, navigation}) => {
 
 
 
-
 	const defaultUserZones = [{
-
         "name": "Parrita",
-        "isInterested": true
+        "isInterested": false
       },
       {
         "name": "Chepe",
-
         "isInterested": false
       },
       {
@@ -89,7 +84,6 @@ const AlertsScreen = ({route, navigation}) => {
     : 
     <View style={styles.container}>     
         <Text style={{fontSize: 30, textAlign: 'left', alignSelf: 'stretch', paddingTop: 10, paddingLeft: 10}}>Alertas recientes</Text>
-
 		
 		{
             alerts.map((u,i)=>{	
@@ -112,7 +106,6 @@ const AlertsScreen = ({route, navigation}) => {
 				        : <Text> </Text>
                 );
             })
-
 			
         }
 		<Button
@@ -120,7 +113,6 @@ const AlertsScreen = ({route, navigation}) => {
 			onPress={() => navigation.navigate('Zones', {p_userZones: userZones})}//como pasar de una pantalla a otra
         />
 		
-
     </View>
   );
 };
