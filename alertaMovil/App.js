@@ -9,6 +9,7 @@ import HomeScreen from './screens/HomeScreen';
 import ExampleScreen from './screens/ExampleScreen'; // 2 paso
 
 import AlertsScreen from './screens/AlertsScreen';
+import HistoryScreen from './screens/HistoryScreen';
 
 import LogIn from './screens/LogIn';
 import SignUp from './screens/SignUp';
@@ -44,11 +45,11 @@ const App = () => {
     <NavigationContainer>
       <RootStack.Navigator> 
         {isAuthenticated ? (
+		<>
           <RootStack.Screen 
             name="Alerts" 
             component={AlertsScreen} 
             options={{
-
 			  headerStyle: {
 				backgroundColor: '#31F0AB'
 			  },
@@ -61,6 +62,19 @@ const App = () => {
               ) 
             }}
           />
+		  <RootStack.Screen name="History" component={HistoryScreen} 
+		  options={{
+			
+			headerStyle: {
+			  backgroundColor: '#31F0AB'
+			  },
+			  headerTintColor: 'white',
+			  headerRight: () => (
+                <Icon style={{marginRight: 10}} name="home" size={30} color="white"/>
+              ) 
+            }}
+		  />
+		  </>
           ) : (
             <>
               <RootStack.Screen 
@@ -70,7 +84,6 @@ const App = () => {
                   animationTypeForReplace: 'pop',
                 }}
               />
-
               <RootStack.Screen 
 			    name="LogIn"
 			    options={{
@@ -83,7 +96,6 @@ const App = () => {
                   )
                 }}
 			  >
-
                 {(props) => (
                   <LogIn {...props} onLogIn={handleLogIn}/>
                 )}
@@ -97,7 +109,6 @@ const App = () => {
 			      headerTintColor: 'white'
                 }}
 			  >
-
                 {(props) => (
                   <SignUp {...props} onSignUp={handleSignUp}/>
                 )}
@@ -118,7 +129,6 @@ const App = () => {
             ) 
           }}
 		/>
-
         <RootStack.Screen name="Home" component={HomeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
