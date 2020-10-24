@@ -52,6 +52,7 @@ const App = () => {
     return (
       <HomeStack.Navigator>
         {isAuthenticated ? (
+        <>
           <HomeStack.Screen
             name="Alertas"
             component={AlertsScreen}
@@ -90,7 +91,8 @@ const App = () => {
                   <Icon style={{ marginRight: 10 }} name="home" size={30} color="white" />
                 )
               }}
-            />
+          />
+        </>
         ) : (
           <>
             <HomeStack.Screen
