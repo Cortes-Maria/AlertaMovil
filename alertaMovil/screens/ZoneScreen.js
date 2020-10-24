@@ -36,13 +36,34 @@ function updateZones(zoneStr){
         "isInterested": false
       },
       {
-        "name": "Chepe",
+        "name": "San José Centro",
         "isInterested": false
       },
       {
         "name": "Alajuela",
         "isInterested": false
-    }]
+      },
+      {
+        "name": "Grecia",
+        "isInterested": false
+      },
+      {
+        "name": "Puriscal",
+        "isInterested": false
+      },
+      {
+        "name": "Desamparados",
+        "isInterested": false
+      },
+      {
+        "name": "Liberia",
+        "isInterested": false
+      },
+      {
+        "name": "Siquirres",
+        "isInterested": false
+      }
+      ]
  
 const ZoneScreen = ({route, navigation}) => {
   const [dummyState, setDummyState] = React.useState(false)
