@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { Card, Header} from 'react-native-elements' 
+
  
 //estos son los estilos como el css por decirlo asi
 const styles = StyleSheet.create({
