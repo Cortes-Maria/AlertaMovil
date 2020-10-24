@@ -61,24 +61,9 @@ const AlertsScreen = ({navigation}) => {
             }
             ) 
     }
-    const loadUsers = () => {
-        fetch("https://my-json-server.typicode.com/cortes-maria/Users/users")
-            .then(res => res.json())
-            .then(
-            (result) => {
-                setLoadedUser(true);
-                setUsers(result);
-            },
-            (error) => {
-                setLoadedUser(true);
-                setErrorUser(error);
-            }
-            ) 
-    }
     
     useEffect(()=>{
         loadAlerts();
-        loadUsers();
     },[])
 
   return (
