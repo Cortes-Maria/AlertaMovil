@@ -7,13 +7,19 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import LandingScreen from "./screens/LandingScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ExampleScreen from "./screens/ExampleScreen"; // 2 paso
-import AlertsScreen from './screens/AlertsScreen';
-import HistoryScreen from './screens/HistoryScreen';
-import ZoneScreen from "./screens/ZoneScreen";
+import AlertsScreen from "./screens/AlertsScreen";
+import HistoryScreen from "./screens/HistoryScreen";
+import ConfirmLogOutScreen from "./screens/ConfirmLogOutScreen";
+
 import LogIn from "./screens/LogIn";
 import SignUp from "./screens/SignUp";
 
-import { createDrawerNavigator, DrawerContent } from "@react-navigation/drawer";
+import {
+  createDrawerNavigator,
+  DrawerContent,
+  DrawerContentScrollView,
+  DrawerItemList,
+} from "@react-navigation/drawer";
 
 const Drawer = createDrawerNavigator();
 
@@ -49,47 +55,53 @@ const App = () => {
     return (
       <HomeStack.Navigator>
         {isAuthenticated ? (
-        <>
-          <HomeStack.Screen
-            name="Alertas"
-            component={AlertsScreen}
-            options={{
-              headerStyle: {
-                backgroundColor: "#31F0AB",
-              },
-              headerTintColor: "white",
-              headerLeft: () => (
-                <Icon
-                  style={{ marginLeft: 10 }}
-                  name="sign-out"
-                  size={30}
-                  color="white"
-                  onPress={handleSignOut}
-                />
-              ),
-              headerRight: () => (
-                <Icon
-                  style={{ marginRight: 10 }}
-                  name="home"
-                  size={30}
-                  color="white"
-                />
-              ),
-            }}
-          />
-          <HomeStack.Screen name="History" component={HistoryScreen}
+          <>
+            <HomeStack.Screen
+              name="Alertas"
+              component={AlertsScreen}
               options={{
-
                 headerStyle: {
-                  backgroundColor: '#31F0AB'
+                  backgroundColor: "#31F0AB",
                 },
-                headerTintColor: 'white',
+                headerTintColor: "white",
+                headerLeft: () => (
+                  <Icon
+                    style={{ marginLeft: 10 }}
+                    name="navicon"
+                    size={30}
+                    color="white"
+                    onPress={() => navigation.openDrawer()}
+                  />
+                ),
                 headerRight: () => (
-                  <Icon style={{ marginRight: 10 }} name="home" size={30} color="white" />
-                )
+                  <Icon
+                    style={{ marginRight: 10 }}
+                    name="home"
+                    size={30}
+                    color="white"
+                  />
+                ),
               }}
-          />
-        </>
+            />
+            <HomeStack.Screen
+              name="History"
+              component={HistoryScreen}
+              options={{
+                headerStyle: {
+                  backgroundColor: "#31F0AB",
+                },
+                headerTintColor: "white",
+                headerRight: () => (
+                  <Icon
+                    style={{ marginRight: 10 }}
+                    name="home"
+                    size={30}
+                    color="white"
+                  />
+                ),
+              }}
+            />
+          </>
         ) : (
           <>
             <HomeStack.Screen
@@ -125,24 +137,6 @@ const App = () => {
             </HomeStack.Screen>
           </>
         )}
-		<HomeStack.Screen
-          name="Zones"
-          component={ZoneScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: "#31F0AB",
-            },
-            headerTintColor: "white",
-            headerRight: () => (
-              <Icon
-                style={{ marginRight: 10 }}
-                name="home"
-                size={30}
-                color="white"
-              />
-            ),
-          }}
-        />
         <HomeStack.Screen
           name="Example"
           component={ExampleScreen}
@@ -175,6 +169,7 @@ const App = () => {
       </HomeStack.Navigator>
     );
   };
+  };
 
   return (
     <NavigationContainer>
@@ -187,9 +182,12 @@ const App = () => {
         }}
       >
         <Drawer.Screen name="Zonas de interés" component={HomeStackScreen} />
-        <Drawer.Screen name="Cerrar sesión" component={HomeStackScreen} />
+        <Drawer.Screen
+          name="Cerrar sesión"
+          component={HomeStackScreen}
+          onPress={handleSignOut}
+        />
       </Drawer.Navigator>
-
     </NavigationContainer>
   );
 };
