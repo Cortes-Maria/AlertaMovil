@@ -3,6 +3,7 @@ import { View, Text, Button, StyleSheet , TouchableOpacity, ImagePropTypes} from
 import { Card, Header} from 'react-native-elements'
 import HomeScreen from '../screens/HomeScreen'
 
+
 //estos son los estilos como el css por decirlo asi
 const styles = StyleSheet.create({
   container: {
@@ -99,5 +100,5 @@ const AlertsScreen = ({navigation}) => {
     </View>
   );
 };
- 
+
 export default AlertsScreen;
