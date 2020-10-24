@@ -7,6 +7,9 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import LandingScreen from "./screens/LandingScreen";
 import HomeScreen from "./screens/HomeScreen";
 import ExampleScreen from "./screens/ExampleScreen"; // 2 paso
+import AlertsScreen from './screens/AlertsScreen';
+import HistoryScreen from './screens/HistoryScreen';
+
 
 import AlertsScreen from "./screens/AlertsScreen";
 
@@ -76,6 +79,18 @@ const App = () => {
               ),
             }}
           />
+          <HomeStack.Screen name="History" component={HistoryScreen}
+              options={{
+
+                headerStyle: {
+                  backgroundColor: '#31F0AB'
+                },
+                headerTintColor: 'white',
+                headerRight: () => (
+                  <Icon style={{ marginRight: 10 }} name="home" size={30} color="white" />
+                )
+              }}
+            />
         ) : (
           <>
             <HomeStack.Screen
@@ -157,6 +172,7 @@ const App = () => {
         <Drawer.Screen name="Zonas de interés" component={HomeStackScreen} />
         <Drawer.Screen name="Cerrar sesión" component={HomeStackScreen} />
       </Drawer.Navigator>
+
     </NavigationContainer>
   );
 };
