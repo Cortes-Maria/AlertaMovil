@@ -7,7 +7,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-
     justifyContent: 'flex-start',
     backgroundColor: '#C2D1D9'
   },
@@ -35,6 +34,27 @@ var alerts = [
     }
 ]
 
+/**
+users = [
+	{
+		nombre: "x",
+		zones: 
+		{
+			{
+				name: 'Parrita',
+				isInterested: true
+			},
+			{
+				name: 'Chepe',
+				isInterested: false
+			},
+			{
+				name: 'Alajuela',
+				isInterested: true
+			}
+		}
+	}	
+]*/
 
 var userZones = [
 	{
@@ -61,12 +81,10 @@ function checkUserZones(zoneStr) {
 	return false;
 }
 
-
 const AlertsScreen = ({navigation}) => {
   return (
     
     <View style={styles.container}>
-
         
         <Text style={{fontSize: 30, textAlign: 'left', alignSelf: 'stretch', paddingTop: 10, paddingLeft: 10}}>Alertas recientes</Text>
         {
@@ -74,7 +92,7 @@ const AlertsScreen = ({navigation}) => {
 				
                 return(
 				checkUserZones(u.place) ?
-                <TouchableOpacity key={i} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity key={i} onPress={() => navigation.navigate('History', {zone: u.place})}>
                     <Card containerStyle={{width: 300}}>
                         <Card.Title style={{textAlign: 'left', fontSize:25}}>{u.disaster}</Card.Title>
                         <Card.Divider/>
@@ -87,9 +105,11 @@ const AlertsScreen = ({navigation}) => {
                     </Card>
                 </TouchableOpacity>
 				: <Text> </Text>
-                );  
+                );
+                
             })
         }
+        
     </View>
   );
 };
