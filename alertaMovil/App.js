@@ -169,30 +169,6 @@ const App = () => {
       </HomeStack.Navigator>
     );
   };
-
-  const ConfirmStackScreen = ({ navigation }) => {
-    return (
-      <HomeStack.Navigator>
-        <HomeStack.Screen
-          name="Confirm"
-          component={ConfirmLogOutScreen}
-          options={{
-            headerStyle: {
-              backgroundColor: "#31F0AB",
-            },
-            headerTintColor: "white",
-            headerRight: () => (
-              <Icon
-                style={{ marginRight: 10 }}
-                name="home"
-                size={30}
-                color="white"
-              />
-            ),
-          }}
-        />
-      </HomeStack.Navigator>
-    );
   };
 
   return (
@@ -208,7 +184,7 @@ const App = () => {
         <Drawer.Screen name="Zonas de interés" component={HomeStackScreen} />
         <Drawer.Screen
           name="Cerrar sesión"
-          component={ConfirmStackScreen}
+          component={HomeStackScreen}
           onPress={handleSignOut}
         />
       </Drawer.Navigator>
