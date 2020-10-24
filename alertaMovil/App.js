@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import Icon from 'react-native-vector-icons/FontAwesome';
  
 import LandingScreen from './screens/LandingScreen';
 import HomeScreen from './screens/HomeScreen';
@@ -47,9 +48,17 @@ const App = () => {
             name="Alerts" 
             component={AlertsScreen} 
             options={{
-              headerRight: () => (
-                <Button onPress={handleSignOut} title="Log Out" />
+
+			  headerStyle: {
+				backgroundColor: '#31F0AB'
+			  },
+			  headerTintColor: 'white',
+              headerLeft: () => (
+				<Icon style={{marginLeft: 10}} name="navicon" size={30} color="white" onPress={handleSignOut}/>
               ),
+			  headerRight: () => (
+                <Icon style={{marginRight: 10}} name="home" size={30} color="white"/>
+              ) 
             }}
           />
           ) : (
@@ -61,19 +70,55 @@ const App = () => {
                   animationTypeForReplace: 'pop',
                 }}
               />
-              <RootStack.Screen name="LogIn">
+
+              <RootStack.Screen 
+			    name="LogIn"
+			    options={{
+				  headerStyle: {
+				    backgroundColor: '#31F0AB'
+			      },
+				  headerTintColor: 'white',
+                  headerLeft: () => (
+				    <></>
+                  )
+                }}
+			  >
+
                 {(props) => (
                   <LogIn {...props} onLogIn={handleLogIn}/>
                 )}
               </RootStack.Screen>
-              <RootStack.Screen name="SignUp">
+              <RootStack.Screen 
+			    name="SignUp"
+			    options={{
+			      headerStyle: {
+				    backgroundColor: '#31F0AB'
+			      },
+			      headerTintColor: 'white'
+                }}
+			  >
+
                 {(props) => (
                   <SignUp {...props} onSignUp={handleSignUp}/>
                 )}
               </RootStack.Screen>
             </>
           )}
-        <RootStack.Screen name="Example" component={ExampleScreen} />
+        <RootStack.Screen name="Example" component={ExampleScreen} 
+		  options={{
+			headerStyle: {
+			backgroundColor: '#31F0AB'
+			},
+			headerTintColor: 'white',
+            headerLeft: () => (
+			  <Icon style={{marginLeft: 10}} name="navicon" size={30} color="white" onPress={handleSignOut}/>
+            ),
+			headerRight: () => (
+              <Icon style={{marginRight: 10}} name="home" size={30} color="white"/>
+            ) 
+          }}
+		/>
+
         <RootStack.Screen name="Home" component={HomeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
