@@ -16,17 +16,6 @@ const styles = StyleSheet.create({
   },
 });
 
-var alerts = [
-    {
-        place: 'Parrita', 
-        disaster: 'Inundacion',
-        date: '20/10/20',
-        time: '10:00 pm'           
-    },
-    cardContent: {
-        fontSize: 20
-    },
-  });
 const AlertsScreen = ({navigation}) => {
     
     const [alerts,setAlerts] = useState([]);
