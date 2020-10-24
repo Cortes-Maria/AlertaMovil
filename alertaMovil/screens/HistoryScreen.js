@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, StyleSheet } from 'react-native';
+import { View, Text, Button, StyleSheet, ScrollView } from 'react-native';
 import { Card } from 'react-native-elements'
  
 //estos son los estilos como el css por decirlo asi
@@ -59,6 +59,7 @@ const HistoryScreen = ({route, navigation}) => {
     <View style={styles.container}>
 	  {navigation.setOptions({title: route.params.zone})}
 	  <Text style={styles.title}>Historial de Alertas</Text>
+      <ScrollView>
 	  {
 	  alerts.map((u,i)=>{
                 return(
@@ -78,6 +79,7 @@ const HistoryScreen = ({route, navigation}) => {
                 
             })
 	  }
+      </ScrollView>
     </View>
   );
 };
