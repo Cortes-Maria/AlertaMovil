@@ -70,7 +70,7 @@ const HistoryScreen = ({route, navigation}) => {
                         { 
                             <View key={i} style={styles.user}>
                                 <Text style={styles.cardContent}>{u.place}</Text>
-                                <Text style={styles.cardContent}>{u.time}</Text>
+                                <Text style={styles.cardContent}>{u.dateTime}</Text>
                             </View>  
                         }
                     </Card>

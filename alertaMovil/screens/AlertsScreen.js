@@ -98,8 +98,7 @@ const AlertsScreen = ({route, navigation}) => {
                         { 
                             <View key={i} style={styles.user}>
                                 <Text style={styles.cardContent}>{u.place}</Text>
-                                <Text style={styles.cardContent}>{u.time}</Text>
-                                <Text style={styles.cardContent}>{u.date}</Text>
+                                <Text style={styles.cardContent}>{u.dateTime}</Text>
                             </View>  
                         }
                     </Card>
@@ -109,11 +108,6 @@ const AlertsScreen = ({route, navigation}) => {
             })
 			
         }
-        
-		<Button
-			title='Zonas de Interés'
-			onPress={() => navigation.navigate('Zones', {p_userZones: userZones})}//como pasar de una pantalla a otra
-        />
         </ScrollView>
     </View>
   );

@@ -70,9 +70,10 @@ const App = () => {
               headerRight: () => (
                 <Icon
                   style={{ marginRight: 10 }}
-                  name="home"
+                  name="map"
                   size={30}
                   color="white"
+                  onPress={() => navigation.navigate('Zones')}
                 />
               ),
             }}
@@ -133,14 +134,6 @@ const App = () => {
               backgroundColor: "#31F0AB",
             },
             headerTintColor: "white",
-            headerRight: () => (
-              <Icon
-                style={{ marginRight: 10 }}
-                name="home"
-                size={30}
-                color="white"
-              />
-            ),
           }}
         />
         <HomeStack.Screen
@@ -170,8 +163,6 @@ const App = () => {
             ),
           }}
         />
-
-        <HomeStack.Screen name="Home" component={HomeScreen} />
       </HomeStack.Navigator>
     );
   };

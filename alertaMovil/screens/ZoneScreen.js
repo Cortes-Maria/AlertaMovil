@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
+import Icon from "react-native-vector-icons/FontAwesome";
 import { Card, Header} from 'react-native-elements' 
  
 //estos son los estilos como el css por decirlo asi
@@ -130,8 +131,12 @@ const ZoneScreen = ({route, navigation}) => {
             })
 			
         }
-		<Button
+        
+		<Icon
+          name="check"
           title="Confirmar"
+          style={{ marginRight: 10, marginLeft:130, marginBottom:50, marginTop:10, color: '#166b57', paddingLeft:70}}
+          size={50}
           onPress={() => navigation.navigate('Alertas', {userZones: zones})}//como pasar de una pantalla a otra
         />
         </ScrollView>
