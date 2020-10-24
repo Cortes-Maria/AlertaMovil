@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
+
     justifyContent: 'flex-start',
     backgroundColor: '#C2D1D9'
   },
@@ -34,6 +35,7 @@ var alerts = [
     }
 ]
 
+
 var userZones = [
 	{
 		name: 'Parrita',
@@ -59,10 +61,12 @@ function checkUserZones(zoneStr) {
 	return false;
 }
 
+
 const AlertsScreen = ({navigation}) => {
   return (
     
     <View style={styles.container}>
+
         
         <Text style={{fontSize: 30, textAlign: 'left', alignSelf: 'stretch', paddingTop: 10, paddingLeft: 10}}>Alertas recientes</Text>
         {
@@ -83,11 +87,9 @@ const AlertsScreen = ({navigation}) => {
                     </Card>
                 </TouchableOpacity>
 				: <Text> </Text>
-                );
-                
+                );  
             })
         }
-        
     </View>
   );
 };

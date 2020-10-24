@@ -48,6 +48,7 @@ const App = () => {
             name="Alerts" 
             component={AlertsScreen} 
             options={{
+
 			  headerStyle: {
 				backgroundColor: '#31F0AB'
 			  },
@@ -69,6 +70,7 @@ const App = () => {
                   animationTypeForReplace: 'pop',
                 }}
               />
+
               <RootStack.Screen 
 			    name="LogIn"
 			    options={{
@@ -81,6 +83,7 @@ const App = () => {
                   )
                 }}
 			  >
+
                 {(props) => (
                   <LogIn {...props} onLogIn={handleLogIn}/>
                 )}
@@ -94,6 +97,7 @@ const App = () => {
 			      headerTintColor: 'white'
                 }}
 			  >
+
                 {(props) => (
                   <SignUp {...props} onSignUp={handleSignUp}/>
                 )}
@@ -114,6 +118,7 @@ const App = () => {
             ) 
           }}
 		/>
+
         <RootStack.Screen name="Home" component={HomeScreen} />
       </RootStack.Navigator>
     </NavigationContainer>
