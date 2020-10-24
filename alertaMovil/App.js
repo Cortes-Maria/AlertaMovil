@@ -9,6 +9,7 @@ import HomeScreen from "./screens/HomeScreen";
 import ExampleScreen from "./screens/ExampleScreen"; // 2 paso
 import AlertsScreen from './screens/AlertsScreen';
 import HistoryScreen from './screens/HistoryScreen';
+import ZoneScreen from "./screens/ZoneScreen";
 
 
 import AlertsScreen from "./screens/AlertsScreen";
@@ -128,6 +129,26 @@ const App = () => {
             </HomeStack.Screen>
           </>
         )}
+
+		<HomeStack.Screen
+          name="Zones"
+          component={ZoneScreen}
+          options={{
+            headerStyle: {
+              backgroundColor: "#31F0AB",
+            },
+            headerTintColor: "white",
+            headerRight: () => (
+              <Icon
+                style={{ marginRight: 10 }}
+                name="home"
+                size={30}
+                color="white"
+              />
+            ),
+          }}
+        />
+
         <HomeStack.Screen
           name="Example"
           component={ExampleScreen}

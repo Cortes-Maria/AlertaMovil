@@ -17,7 +17,9 @@ const styles = StyleSheet.create({
   },
 });
 
-const AlertsScreen = ({navigation}) => {
+
+const AlertsScreen = ({route, navigation}) => {
+
     
     const [alerts,setAlerts] = useState([]);
     const [error,setError] = useState(null);
@@ -25,18 +27,29 @@ const AlertsScreen = ({navigation}) => {
 
 
 
-    var userZones = [{
+
+	const defaultUserZones = [{
+
         "name": "Parrita",
         "isInterested": true
       },
       {
         "name": "Chepe",
-        "isInterested": true
+
+        "isInterested": false
       },
       {
         "name": "Alajuela",
-        "isInterested": true
+        "isInterested": false
     }]
+
+    var userZones = []
+	
+	if(route.params){
+		userZones = route.params.userZones;
+	} else {
+		userZones = defaultUserZones;
+	}
 
     function checkUserZones(zoneStr) {
         var i;
@@ -76,9 +89,12 @@ const AlertsScreen = ({navigation}) => {
     : 
     <View style={styles.container}>     
         <Text style={{fontSize: 30, textAlign: 'left', alignSelf: 'stretch', paddingTop: 10, paddingLeft: 10}}>Alertas recientes</Text>
-        {
+
+		
+		{
             alerts.map((u,i)=>{	
                 return(
+				
 				checkUserZones(u.place) ?
                 <TouchableOpacity key={i} onPress={() => navigation.navigate('History', {zone: u.place})}>
                     <Card containerStyle={{width: 300}}>
@@ -96,7 +112,15 @@ const AlertsScreen = ({navigation}) => {
 				        : <Text> </Text>
                 );
             })
-        }    
+
+			
+        }
+		<Button
+			title='Zonas de Interés'
+			onPress={() => navigation.navigate('Zones', {p_userZones: userZones})}//como pasar de una pantalla a otra
+        />
+		
+
     </View>
   );
 };
