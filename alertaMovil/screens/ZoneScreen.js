@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { Card, Header} from 'react-native-elements' 
-
  
 //estos son los estilos como el css por decirlo asi
 const styles = StyleSheet.create({
@@ -104,6 +102,10 @@ const ZoneScreen = ({route, navigation}) => {
             })
 			
         }
+		<Button
+          title="Confirmar"
+          onPress={() => navigation.navigate('Alertas', {userZones: zones})}//como pasar de una pantalla a otra
+        />
 		
 	  
     </View>
