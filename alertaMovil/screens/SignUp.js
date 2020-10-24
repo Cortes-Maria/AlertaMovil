@@ -1,9 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input } from 'react-native-elements';
-
 
 const styles = StyleSheet.create({
   container: {
@@ -14,10 +12,10 @@ const styles = StyleSheet.create({
   },
 });
  
-const SignInScreen = ({ onLogIn, navigation}) => {
+const SignUpScreen = ({ onSignUp, navigation}) => {
   return (
     <View style={styles.container}>
-      <Text>Inicie sesión</Text>
+      <Text>Sign Up</Text>
       <Input
           placeholder='Email'
       />
@@ -25,10 +23,13 @@ const SignInScreen = ({ onLogIn, navigation}) => {
           placeholder="Password" 
           secureTextEntry={true} 
       />
-      <Button title="Log In" onPress={onLogIn} />
-      <Button title="Sign Up" onPress={() => navigation.navigate('SignUp')} />
+       <Input 
+          placeholder="Password" 
+          secureTextEntry={true} 
+      />
+      <Button title="Submit" onPress={onSignUp} />
     </View>
   );
 };
  
-export default SignInScreen;
+export default SignUpScreen;

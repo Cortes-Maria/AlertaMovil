@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#C2D1D9'
   },
 });
  
@@ -15,7 +16,8 @@ const LandingScreen = ({navigation}) => {
       <Text>Public Landing Screen</Text>
       <Button
         title="Go to Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Enter"
+        onPress={() => navigation.navigate('LogIn')}
       />
     </View>
   );
