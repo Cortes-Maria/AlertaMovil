@@ -5,23 +5,34 @@ import HomeScreen from '../screens/HomeScreen'
 
 //estos son los estilos como el css por decirlo asi
 const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-  
-      justifyContent: 'flex-start',
-      backgroundColor: '#C2D1D9'
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    backgroundColor: '#C2D1D9'
+  },
+  cardContent: {
+	  fontSize: 20
+  },
+});
+
+var alerts = [
+    {
+        place: 'Parrita', 
+        disaster: 'Inundacion',
+        date: '20/10/20',
+        time: '10:00 pm'           
     },
     cardContent: {
         fontSize: 20
     },
   });
-
 const AlertsScreen = ({navigation}) => {
     
     const [alerts,setAlerts] = useState([]);
     const [error,setError] = useState(null);
     const [isLoaded,setLoaded] = useState(false);
+
 
 
     var userZones = [{
@@ -94,7 +105,7 @@ const AlertsScreen = ({navigation}) => {
             alerts.map((u,i)=>{	
                 return(
 				checkUserZones(u.place) ?
-                <TouchableOpacity key={i} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity key={i} onPress={() => navigation.navigate('History', {zone: u.place})}>
                     <Card containerStyle={{width: 300}}>
                         <Card.Title style={{textAlign: 'left', fontSize:25}}>{u.disaster}</Card.Title>
                         <Card.Divider/>
@@ -107,10 +118,10 @@ const AlertsScreen = ({navigation}) => {
                         }
                     </Card>
                 </TouchableOpacity>
-				: <Text></Text>
-                );  
+				        : <Text> </Text>
+                );
             })
-        }
+        }    
     </View>
   );
 };
