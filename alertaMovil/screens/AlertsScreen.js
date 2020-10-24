@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, Button, StyleSheet , TouchableOpacity, ImagePropTypes} from 'react-native';
+import { View, Text, Button, StyleSheet , TouchableOpacity, ImagePropTypes, ScrollView} from 'react-native';
 import { Card, Header} from 'react-native-elements'
 import HomeScreen from '../screens/HomeScreen'
 
@@ -84,12 +84,13 @@ const AlertsScreen = ({route, navigation}) => {
     : 
     <View style={styles.container}>     
         <Text style={{fontSize: 30, textAlign: 'left', alignSelf: 'stretch', paddingTop: 10, paddingLeft: 10}}>Alertas recientes</Text>
-		
+        <ScrollView>
 		{
             alerts.map((u,i)=>{	
                 return(
 				
-				checkUserZones(u.place) ?
+                checkUserZones(u.place) ?
+                
                 <TouchableOpacity key={i} onPress={() => navigation.navigate('History', {zone: u.place})}>
                     <Card containerStyle={{width: 300}}>
                         <Card.Title style={{textAlign: 'left', fontSize:25}}>{u.disaster}</Card.Title>
@@ -108,11 +109,12 @@ const AlertsScreen = ({route, navigation}) => {
             })
 			
         }
+        
 		<Button
 			title='Zonas de Interés'
 			onPress={() => navigation.navigate('Zones', {p_userZones: userZones})}//como pasar de una pantalla a otra
         />
-		
+        </ScrollView>
     </View>
   );
 };

@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import { View, Text, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, Button, StyleSheet, TouchableOpacity, ScrollView } from 'react-native';
 import { Card, Header} from 'react-native-elements' 
  
 //estos son los estilos como el css por decirlo asi
@@ -62,6 +62,7 @@ const ZoneScreen = ({route, navigation}) => {
   return (
     <View style={styles.container}>
       <Text>Zonas de Interes</Text>
+      <ScrollView>
 	  {
             zones.map((u,i)=>{	
                 return(
@@ -83,7 +84,9 @@ const ZoneScreen = ({route, navigation}) => {
             })
 			
         }
+        </ScrollView>
 		<Text>Otras zonas</Text>
+        <ScrollView>
 		{
             zones.map((u,i)=>{	
                 return(
@@ -110,6 +113,7 @@ const ZoneScreen = ({route, navigation}) => {
           title="Confirmar"
           onPress={() => navigation.navigate('Alertas', {userZones: zones})}//como pasar de una pantalla a otra
         />
+        </ScrollView>
 		
 	  
     </View>
